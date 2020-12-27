@@ -8,4 +8,6 @@ Effect ON/OFF
 ![StarGlow](https://github.com/togucchi/urp-postprocessing-examples/blob/main/Thumbnails/starglow.gif?raw=true)
 
 ### Reference
-https://github.com/IndieVisualLab/UnityGraphicsProgramming4
+[Frame Buffer Postprocessing Effects in DOUBLE-S.T.E.A.L(Wreckless)](http://www.daionet.gr.jp/~masa/archives/GDC2003_DSTEAL.ppt)
+
+[UnityGraphicsProgramming vol.4](https://github.com/IndieVisualLab/UnityGraphicsProgramming4)
