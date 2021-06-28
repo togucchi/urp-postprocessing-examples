@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6be0e5daf13724d80ef621c2a017f3, type: 3}
   m_Name: NewStarGlowRenderFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,7 +27,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RendererFeatures:
   - {fileID: -5711367694713596037}
-  m_RendererFeatureMap: 7b57f47e5725bdb0
+  - {fileID: 1960001062480161899}
+  - {fileID: 5352219342248365070}
+  m_RendererFeatureMap: 7b57f47e5725bdb06bac84f09452331b0e4cb06e22e7464a
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -49,3 +51,32 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
+--- !u!114 &1960001062480161899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b3215120cef854db4d6de67b8a54d3, type: 3}
+  m_Name: NewDepthLineRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+--- !u!114 &5352219342248365070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b5ecde360e82241b7c7b7cd0b0e3ed, type: 3}
+  m_Name: GradientFog
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 550
+    shader: {fileID: 4800000, guid: bc740dd5a7d89d048809a75fadc45455, type: 3}
