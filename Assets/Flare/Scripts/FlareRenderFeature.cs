@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 namespace Toguchi.Rendering
 {
-    public class DepthLineRenderFeature : ScriptableRendererFeature
+    public class FlareRenderFeature : ScriptableRendererFeature
     {
         [System.Serializable]
         public class Settings
@@ -17,19 +16,19 @@ namespace Toguchi.Rendering
         
         public Settings settings = new Settings();
 
-        private DepthLinePass _depthLinePass;
-
+        private FlarePass _pass;
 
         public override void Create()
         {
-            this.name = "DepthLine";
-            _depthLinePass = new DepthLinePass(settings.renderPassEvent, settings.shader);
+            this.name = "Flare";
+            _pass = new FlarePass(settings.renderPassEvent, settings.shader);
         }
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            _depthLinePass.Setup(renderer.cameraColorTarget);
-            renderer.EnqueuePass(_depthLinePass);
+            _pass.Setup(renderer.cameraColorTarget);
+            renderer.EnqueuePass(_pass);
         }
+        
     }
 }

@@ -7,70 +7,25 @@ using UnityEngine.Rendering.Universal;
 
 namespace Toguchi.Rendering
 {
-    public class DepthLinePass : ScriptableRenderPass
+    public class DepthLinePass : CustomPostProcessingPass<DepthLine>
     {
-        private const string RenderTag = "DepthLine";
-        private const string ShaderName = "Hidden/Toguchi/PostProcessing/DepthLine";
-        
-        private DepthLine _depthLine;
-        private Material _depthLineMaterial;
-        private RenderTargetIdentifier _currentRenderTarget;
+        protected override string RenderTag => "DepthLine";
 
-        private bool _isCreatedMaterial = false;
-
-        public DepthLinePass(RenderPassEvent renderPassEvent)
+        protected override void BeforeRender(CommandBuffer commandBuffer, ref RenderingData renderingData)
         {
-            this.renderPassEvent = renderPassEvent;
-
-            var shader = Shader.Find(ShaderName);
-            if(shader == null)
-            {
-                Debug.LogError($"Shader = {ShaderName} が存在しません");
-                return;
-            }
-
-            _depthLineMaterial = CoreUtils.CreateEngineMaterial(shader);
-            _isCreatedMaterial = true;
-        }
-        
-        public void SetupPass(in RenderTargetIdentifier currentRenderTarget)
-        {
-            this._currentRenderTarget = currentRenderTarget;
-        }
-        
-        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
-        {
-            if (!_isCreatedMaterial || !renderingData.cameraData.postProcessEnabled)
-            {
-                return;
-            }
-
-            var volumeStack = VolumeManager.instance.stack;
-            _depthLine = volumeStack.GetComponent<DepthLine>();
-            if (_depthLine == null || !_depthLine.IsActive())
-            {
-                return;
-            }
-
-            var commandBuffer = CommandBufferPool.Get(RenderTag);
-            Render(commandBuffer, ref renderingData);
-            context.ExecuteCommandBuffer(commandBuffer);
-            CommandBufferPool.Release(commandBuffer);
+            commandBuffer.SetGlobalFloat("_DepthLineBias", Component.bias.value);
+            commandBuffer.SetGlobalFloat("_DepthLineWidth", Component.lineWidth.value);
+            commandBuffer.SetGlobalFloat("_DepthLineSamplingRate", Component.samplingScale.value);
+            commandBuffer.SetGlobalFloat("_DepthLineMaxWeight", Component.maxWeight.value);
         }
 
-        private void Render(CommandBuffer commandBuffer, ref RenderingData renderingData)
+        protected override bool IsActive()
         {
-            ref var cameraData = ref renderingData.cameraData;
+            return Component.IsActive();
+        }
 
-            var source = _currentRenderTarget;
-            var dest = _currentRenderTarget;
-            
-            commandBuffer.SetGlobalFloat("_DepthLineBias", _depthLine.bias.value);
-            commandBuffer.SetGlobalFloat("_DepthLineWidth", _depthLine.lineWidth.value);
-            commandBuffer.SetGlobalFloat("_DepthLineSamplingRate", _depthLine.samplingScale.value);
-            commandBuffer.SetGlobalFloat("_DepthLineMaxWeight", _depthLine.maxWeight.value);
-            
-            commandBuffer.Blit(source, dest, _depthLineMaterial);
+        public DepthLinePass(RenderPassEvent renderPassEvent, Shader shader) : base(renderPassEvent, shader)
+        {
         }
     }
 }

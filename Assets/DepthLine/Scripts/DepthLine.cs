@@ -14,7 +14,7 @@ namespace Toguchi.Rendering
 
         public FloatParameter samplingScale = new FloatParameter(5f);
 
-        public FloatParameter lineWidth = new FloatParameter(1.0f);
+        public FloatParameter lineWidth = new FloatParameter(0f);
         
         public bool IsActive() => lineWidth.value > 0f;
 
