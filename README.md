@@ -27,6 +27,12 @@ Effect ON/OFF
 
 ![GradientFog](https://github.com/togucchi/urp-postprocessing-examples/blob/main/Thumbnails/gradient_fog.gif?raw=true)
 
+### Gradient Texture Tool
+Created a tool to convert Gradient to RampTexture in `Window/GradientRamp`
+
+![GradientTool](https://github.com/togucchi/urp-postprocessing-examples/blob/main/Thumbnails/gradient_tool.png?raw=true)
+
+
 ## LightShaft
 Effect ON/OFF
 
