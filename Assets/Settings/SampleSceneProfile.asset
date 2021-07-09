@@ -83,41 +83,6 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-5411782704339703329
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702bcde1762b6fd439c6021eef0e4b2f, type: 3}
-  m_Name: StarGlow
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  Threshold:
-    m_OverrideState: 1
-    m_Value: 1
-  Intensity:
-    m_OverrideState: 1
-    m_Value: 0.8
-  Attenuation:
-    m_OverrideState: 1
-    m_Value: 0.3
-  Angle:
-    m_OverrideState: 1
-    m_Value: 45
-  StreakCount:
-    m_OverrideState: 1
-    m_Value: 4
-  Iteration:
-    m_OverrideState: 1
-    m_Value: 5
-  Divide:
-    m_OverrideState: 1
-    m_Value: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +99,10 @@ MonoBehaviour:
   - {fileID: 849379129802519247}
   - {fileID: -7893295128165547882}
   - {fileID: -7011558710299706105}
-  - {fileID: -5411782704339703329}
+  - {fileID: 6255546974561673362}
+  - {fileID: 4003045197303246781}
+  - {fileID: 967291572828633334}
+  - {fileID: 8005431184771482974}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -152,3 +120,113 @@ MonoBehaviour:
   mode:
     m_OverrideState: 1
     m_Value: 2
+--- !u!114 &967291572828633334
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d146ea0b8c76d47ba27a63f2f8d2e8, type: 3}
+  m_Name: GradientFog
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  gradientTexture:
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: 2a5c875aa1a58fe43bfe1796d9479779, type: 3}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.38
+    min: 0
+    max: 1
+--- !u!114 &4003045197303246781
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c592f8609bbaa404b8c91d85a7293970, type: 3}
+  m_Name: Flare
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  flareColor:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0.8350202, b: 0.5518868, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  flarePosition:
+    m_OverrideState: 1
+    m_Value: {x: -5.89, y: 5.37}
+  flareSize:
+    m_OverrideState: 1
+    m_Value: 8.59
+  paraColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.07266821, g: 0.099699356, b: 0.21698111, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  paraPosition:
+    m_OverrideState: 1
+    m_Value: {x: 1.36, y: -1.44}
+  paraSize:
+    m_OverrideState: 1
+    m_Value: 1.51
+--- !u!114 &6255546974561673362
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d7c23818ffd4448bf2fdd7e8eeae92, type: 3}
+  m_Name: Diffusion
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  contrast:
+    m_OverrideState: 1
+    m_Value: 2.5
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.6
+    min: 0
+    max: 1
+--- !u!114 &8005431184771482974
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f3adaab4db4f8f9fbc58713914aa1b, type: 3}
+  m_Name: LightShaft
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  maxIterations:
+    m_OverrideState: 1
+    m_Value: 64
+  maxDistance:
+    m_OverrideState: 1
+    m_Value: 12
+  minDistance:
+    m_OverrideState: 1
+    m_Value: 0.4
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.5
+    min: 0
+    max: 1
