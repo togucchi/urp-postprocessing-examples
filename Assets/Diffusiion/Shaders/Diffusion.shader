@@ -75,7 +75,8 @@ HLSLINCLUDE
         half4 color = SAMPLE_TEXTURE2D_X(_MainTex, sampler_LinearClamp , input.uv);
         half4 blur = SAMPLE_TEXTURE2D_X(_BlurTex, sampler_LinearClamp, input.uv);
 
-        color = lerp(color, blur, _Intensity);
+          color.rgb = 1.0 - (1.0 - color.rgb) * (1.0 - blur.rgb * _Intensity);
+        // color.rgb = lerp(color.rgb, blur.rgb, _Intensity);
         
         return color;
     }

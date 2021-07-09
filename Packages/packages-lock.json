@@ -109,6 +109,14 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.unity.universaltoonshader.urp": {
+      "version": "file:UnityChanToonShaderVer2_Project-release-urp-2.2",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "7.3.1"
+      }
+    },
     "com.unity.visualeffectgraph": {
       "version": "8.2.0",
       "depth": 0,
